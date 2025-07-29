@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:ScoresAndCounters.ViewModels"
+             x:Class="ScoresAndCounters.Views.HomePage"
+             Title="{Binding Title}"
+             x:DataType="viewModels:HomePageViewModel">
+    <ContentPage.BindingContext>
+        <viewModels:HomePageViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+        <Button VerticalOptions="Center" Text="{Binding ContinueButtonLabel}" HorizontalOptions="Fill" IsVisible="{Binding ShowContineButton}" />
+        <Button VerticalOptions="Center" Text="{Binding NewCounterButtonLabel}" HorizontalOptions="Fill"/>
+        <Button VerticalOptions="Center" Text="{Binding SettingsButtonLabel}" HorizontalOptions="Fill" />
+    </VerticalStackLayout>
+</ContentPage>
