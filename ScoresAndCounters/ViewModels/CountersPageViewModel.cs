@@ -1,23 +1,25 @@
-﻿using ScoresAndCounters.Models;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using ScoresAndCounters.Models;
 using System.Collections.ObjectModel;
 
 namespace ScoresAndCounters.ViewModels
 {
-    public class CountersPageViewModel
+    public class CountersPageViewModel : ObservableObject
     {
-        public ObservableCollection<CounterItemModel> CounterItemModels { get; set; }
+        public ObservableCollection<CounterItemModel> CounterItems { get; set; }
         
-        public Command AddCounterItemCommand { get; set; }
+        public Command AddCounterItemCommand { get; private set; }
         
         public CountersPageViewModel()
         {
-            CounterItemModels = new ObservableCollection<CounterItemModel>();
+            CounterItems = new ObservableCollection<CounterItemModel>();
             AddCounterItemCommand = new Command(ExecuteAddCounterItemCommand);
         }
 
         private void ExecuteAddCounterItemCommand(object obj)
         {
-            CounterItemModels.Add(new CounterItemModel());
+            CounterItems.Add(new CounterItemModel());
+            OnPropertyChanged(nameof(CounterItems));
         }
     }
 }

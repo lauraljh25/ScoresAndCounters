@@ -4,7 +4,7 @@ namespace ScoresAndCounters.ViewModels
 {
     public class HomePageViewModel
     {
-        public Command NewCounterCommand { get; }
+        public Command NewCounterCommand { get; private set; }
         public HomePageViewModel()
         {
             Title = "Scores And Counters";

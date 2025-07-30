@@ -4,12 +4,34 @@
              x:Class="ScoresAndCounters.Views.CountersPage"
              xmlns:viewModels="clr-namespace:ScoresAndCounters.ViewModels"
              Title="CountersPage"
-             x:DataType="viewModels:CountersPageViewModel">
+             x:DataType="viewModels:CountersPageViewModel"
+             xmlns:DataViewModels="clr-namespace:ScoresAndCounters.Models">
     <ContentPage.BindingContext>
         <viewModels:CountersPageViewModel />
     </ContentPage.BindingContext>
 
-    <VerticalStackLayout>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCounterItemCommand}" IconImageSource="{FontImage Glyph='+', Size=30}" />
+    </ContentPage.ToolbarItems>
 
+    <VerticalStackLayout>
+        <CollectionView x:Name="notesCollection"
+                    ItemsSource="{Binding CounterItemModels}"
+                    Margin="20"
+                    SelectionMode="Single"
+                    EmptyView="Press Add Button">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="DataViewModels:CounterItemModel">
+                    <StackLayout>
+                        <Label Text="{Binding CounterValue}" FontSize="20"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
