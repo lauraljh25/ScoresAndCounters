@@ -13,7 +13,7 @@
             Padding="30,0"
             Spacing="25">
         <Button VerticalOptions="Center" Text="{Binding ContinueButtonLabel}" HorizontalOptions="Fill" IsVisible="{Binding ShowContineButton}" />
-        <Button VerticalOptions="Center" Text="{Binding NewCounterButtonLabel}" HorizontalOptions="Fill"/>
+        <Button VerticalOptions="Center" Text="{Binding NewCounterButtonLabel}" Command="{Binding NewCounterCommand}" HorizontalOptions="Fill"/>
         <Button VerticalOptions="Center" Text="{Binding SettingsButtonLabel}" HorizontalOptions="Fill" />
     </VerticalStackLayout>
 </ContentPage>

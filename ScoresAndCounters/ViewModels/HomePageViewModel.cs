@@ -1,20 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ScoresAndCounters.Views;
 
 namespace ScoresAndCounters.ViewModels
 {
     public class HomePageViewModel
     {
+        public Command NewCounterCommand { get; }
         public HomePageViewModel()
         {
             Title = "Scores And Counters";
             NewCounterButtonLabel = "New Counter +";
             ContinueButtonLabel = "Continue";
             SettingsButtonLabel = "Settings";
-            ShowContineButton = false; 
+            ShowContineButton = false;
+            NewCounterCommand = new Command(ExecuteNewCounterCommand);
+        }
+
+        private async void ExecuteNewCounterCommand(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(CountersPage));
         }
 
         #region Properties
