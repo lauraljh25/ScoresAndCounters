@@ -16,9 +16,9 @@
 
     <VerticalStackLayout>
         <CollectionView x:Name="notesCollection"
-                    ItemsSource="{Binding CounterItemModels}"
+                    ItemsSource="{Binding CounterItems}"
                     Margin="20"
-                    SelectionMode="Single"
+                    SelectionMode="None"
                     EmptyView="Press Add Button">
 
             <CollectionView.ItemsLayout>
@@ -28,7 +28,11 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="DataViewModels:CounterItemModel">
                     <StackLayout>
-                        <Label Text="{Binding CounterValue}" FontSize="20"/>
+                        <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
+                        <Grid RowDefinitions="*" ColumnDefinitions="*,*">
+                            <Button Text="+" Grid.Column="0" HorizontalOptions="Center" FontSize="20"></Button>
+                            <Button Text="-" Grid.Column="1" HorizontalOptions="Center" FontSize="20"></Button>
+                        </Grid>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
