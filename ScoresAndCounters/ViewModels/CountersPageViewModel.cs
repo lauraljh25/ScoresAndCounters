@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using ScoresAndCounters.Models;
+using ScoresAndCounters.ViewModels.CollectionViewModels;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -7,7 +7,7 @@ namespace ScoresAndCounters.ViewModels
 {
     public class CountersPageViewModel : ObservableObject
     {
-        public ObservableCollection<CounterItemModel> CounterItems { get; set; }
+        public ObservableCollection<CounterItemViewModel> CounterItems { get; set; }
         
         public Command AddCounterItemCommand { get; private set; }
         public Command IncrementCounterItemCommand { get; private set; }
@@ -16,30 +16,30 @@ namespace ScoresAndCounters.ViewModels
 
         public CountersPageViewModel()
         {
-            CounterItems = new ObservableCollection<CounterItemModel>();
+            CounterItems = new ObservableCollection<CounterItemViewModel>();
             AddCounterItemCommand = new Command(ExecuteAddCounterItemCommand);
-            IncrementCounterItemCommand = new Command<CounterItemModel>(ExecuteIncrementCounterItemCommand);
-            DecrementCounterItemCommand = new Command<CounterItemModel>(ExecuteDecrementCounterItemCommand);
-            RemoveCounterItemCommand = new Command<CounterItemModel>(ExecuteRemoveCounterItemCommand);
+            IncrementCounterItemCommand = new Command<CounterItemViewModel>(ExecuteIncrementCounterItemCommand);
+            DecrementCounterItemCommand = new Command<CounterItemViewModel>(ExecuteDecrementCounterItemCommand);
+            RemoveCounterItemCommand = new Command<CounterItemViewModel>(ExecuteRemoveCounterItemCommand);
         }
 
         private void ExecuteAddCounterItemCommand(object obj)
         {
-            CounterItems.Add(new CounterItemModel());
+            CounterItems.Add(new CounterItemViewModel());
             OnPropertyChanged(nameof(CounterItems));
         }
 
-        private void ExecuteIncrementCounterItemCommand(CounterItemModel counterItem)
+        private void ExecuteIncrementCounterItemCommand(CounterItemViewModel counterItem)
         {
             counterItem.Increment();
         }
 
-        private void ExecuteDecrementCounterItemCommand(CounterItemModel counterItem)
+        private void ExecuteDecrementCounterItemCommand(CounterItemViewModel counterItem)
         {
             counterItem.Decrement();
         }
 
-        private void ExecuteRemoveCounterItemCommand(CounterItemModel counterItem)
+        private void ExecuteRemoveCounterItemCommand(CounterItemViewModel counterItem)
         {
             CounterItems.Remove(counterItem);
             OnPropertyChanged(nameof(CounterItems));

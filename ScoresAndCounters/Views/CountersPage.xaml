@@ -5,7 +5,7 @@
              xmlns:viewModels="clr-namespace:ScoresAndCounters.ViewModels"
              Title="CountersPage"
              x:DataType="viewModels:CountersPageViewModel"
-             xmlns:DataViewModels="clr-namespace:ScoresAndCounters.Models">
+             xmlns:DataViewModels="clr-namespace:ScoresAndCounters.ViewModels.CollectionViewModels">
     <ContentPage.BindingContext>
         <viewModels:CountersPageViewModel />
     </ContentPage.BindingContext>
@@ -26,12 +26,12 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="DataViewModels:CounterItemModel">
+                <DataTemplate x:DataType="DataViewModels:CounterItemViewModel">
                     <StackLayout>
                         <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
                         <Grid RowDefinitions="*" ColumnDefinitions="*,*">
-                            <Button Text="+" Grid.Column="0" HorizontalOptions="Center" FontSize="20"></Button>
-                            <Button Text="-" Grid.Column="1" HorizontalOptions="Center" FontSize="20"></Button>
+                            <Button Text="-" Grid.Column="0" HorizontalOptions="Center" FontSize="20"></Button>
+                            <Button Text="+" Grid.Column="1" HorizontalOptions="Center" FontSize="20"></Button>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>

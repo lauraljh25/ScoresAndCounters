@@ -1,14 +1,14 @@
 ﻿using ScoresAndCounters.Helpers;
 
-namespace ScoresAndCounters.Models
+namespace ScoresAndCounters.ViewModels.CollectionViewModels
 {
-    public class CounterItemModel
+    public class CounterItemViewModel
     {
         public int CounterValue { get; set; }
         public int CounterIncDec { get; set; }
         public int CounterCustomIncDec { get; set; }
 
-        public CounterItemModel() 
+        public CounterItemViewModel() 
         {
             CounterValue = AppConstants.InitialCounterValue;
             CounterIncDec = AppConstants.CounterIncDec;
