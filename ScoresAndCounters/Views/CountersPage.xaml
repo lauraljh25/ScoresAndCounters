@@ -11,11 +11,11 @@
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCounterItemCommand}" IconImageSource="{FontImage Glyph='+', Size=30}" />
+        <ToolbarItem Text="Add" Command="{Binding AddCounterItemCommand}" />
     </ContentPage.ToolbarItems>
 
-    <VerticalStackLayout>
-        <CollectionView x:Name="notesCollection"
+    <Grid RowDefinitions="*">
+        <CollectionView
                     ItemsSource="{Binding CounterItems}"
                     Margin="20"
                     SelectionMode="None"
@@ -30,12 +30,12 @@
                     <StackLayout>
                         <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
                         <Grid RowDefinitions="*" ColumnDefinitions="*,*">
-                            <Button Text="-" Grid.Column="0" HorizontalOptions="Center" FontSize="20"></Button>
-                            <Button Text="+" Grid.Column="1" HorizontalOptions="Center" FontSize="20"></Button>
+                            <Button Text="-" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}"></Button>
+                            <Button Text="+" Grid.Column="1" HorizontalOptions="Center" FontSize="20" Command="{Binding IncrementCounterItemCommand}"></Button>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>
