@@ -29,6 +29,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="DataViewModels:CounterItemViewModel">
                     <StackLayout>
+                        <Button Text="{x:Static local:ResourceLibrary.X}" HorizontalOptions="End" VerticalOptions="Start" FontSize="15" TextColor="White" BackgroundColor="DarkRed" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:CountersPageViewModel}}, Path=RemoveCounterItemCommand}" CommandParameter="{Binding .}"></Button>
                         <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
                         <Grid RowDefinitions="*" ColumnDefinitions="*,*">
                             <Button Text="{x:Static local:ResourceLibrary.MinusSymbol}" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}"></Button>

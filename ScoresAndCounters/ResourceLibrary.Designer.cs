@@ -140,5 +140,14 @@ namespace ScoresAndCounters {
                 return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to X.
+        /// </summary>
+        public static string X {
+            get {
+                return ResourceManager.GetString("X", resourceCulture);
+            }
+        }
     }
 }
