@@ -13,6 +13,7 @@ namespace ScoresAndCounters
         private void RegisterRoutes()
         {
             Routing.RegisterRoute(nameof(CountersPage), typeof(CountersPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
         }
     }
 }

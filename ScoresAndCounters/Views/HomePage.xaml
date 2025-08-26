@@ -15,6 +15,6 @@
             Spacing="25">
         <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.Continue}" HorizontalOptions="Fill" IsVisible="{Binding ShowContineButton}" />
         <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.NewCounterPlusSymbol}" Command="{Binding NewCounterCommand}" HorizontalOptions="Fill"/>
-        <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.Settings}" HorizontalOptions="Fill" />
+        <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.Settings}" Command="{Binding SettingsCommand}" HorizontalOptions="Fill" />
     </VerticalStackLayout>
 </ContentPage>
