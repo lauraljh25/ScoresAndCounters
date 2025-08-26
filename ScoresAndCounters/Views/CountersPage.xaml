@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ScoresAndCounters.Views.CountersPage"
              xmlns:viewModels="clr-namespace:ScoresAndCounters.ViewModels"
-             Title="CountersPage"
+             Title="{x:Static local:ResourceLibrary.Counters}"
              x:DataType="viewModels:CountersPageViewModel"
-             xmlns:DataViewModels="clr-namespace:ScoresAndCounters.ViewModels.CollectionViewModels">
+             xmlns:DataViewModels="clr-namespace:ScoresAndCounters.ViewModels.CollectionViewModels"
+             xmlns:local="clr-namespace:ScoresAndCounters">
     <ContentPage.BindingContext>
         <viewModels:CountersPageViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCounterItemCommand}" />
+        <ToolbarItem Text="{x:Static local:ResourceLibrary.Add}" Command="{Binding AddCounterItemCommand}" />
     </ContentPage.ToolbarItems>
 
     <Grid RowDefinitions="*">
@@ -19,7 +20,7 @@
                     ItemsSource="{Binding CounterItems}"
                     Margin="20"
                     SelectionMode="None"
-                    EmptyView="Press Add Button">
+                    EmptyView="{x:Static local:ResourceLibrary.PressAddButton}">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
@@ -30,8 +31,8 @@
                     <StackLayout>
                         <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
                         <Grid RowDefinitions="*" ColumnDefinitions="*,*">
-                            <Button Text="-" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}"></Button>
-                            <Button Text="+" Grid.Column="1" HorizontalOptions="Center" FontSize="20" Command="{Binding IncrementCounterItemCommand}"></Button>
+                            <Button Text="{x:Static local:ResourceLibrary.MinusSymbol}" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}"></Button>
+                            <Button Text="{x:Static local:ResourceLibrary.PlusSymbol}" Grid.Column="1" HorizontalOptions="Center" FontSize="20" Command="{Binding IncrementCounterItemCommand}"></Button>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>

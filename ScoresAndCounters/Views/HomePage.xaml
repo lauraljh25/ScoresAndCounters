@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:ScoresAndCounters.ViewModels"
              x:Class="ScoresAndCounters.Views.HomePage"
-             Title="{Binding Title}"
-             x:DataType="viewModels:HomePageViewModel">
+             Title="{x:Static local:ResourceLibrary.ScoresAndCounters}"
+             x:DataType="viewModels:HomePageViewModel"
+             xmlns:local="clr-namespace:ScoresAndCounters">
     <ContentPage.BindingContext>
         <viewModels:HomePageViewModel />
     </ContentPage.BindingContext>
@@ -12,8 +13,8 @@
     <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-        <Button VerticalOptions="Center" Text="{Binding ContinueButtonLabel}" HorizontalOptions="Fill" IsVisible="{Binding ShowContineButton}" />
-        <Button VerticalOptions="Center" Text="{Binding NewCounterButtonLabel}" Command="{Binding NewCounterCommand}" HorizontalOptions="Fill"/>
-        <Button VerticalOptions="Center" Text="{Binding SettingsButtonLabel}" HorizontalOptions="Fill" />
+        <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.Continue}" HorizontalOptions="Fill" IsVisible="{Binding ShowContineButton}" />
+        <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.NewCounterPlusSymbol}" Command="{Binding NewCounterCommand}" HorizontalOptions="Fill"/>
+        <Button VerticalOptions="Center" Text="{x:Static local:ResourceLibrary.Settings}" HorizontalOptions="Fill" />
     </VerticalStackLayout>
 </ContentPage>

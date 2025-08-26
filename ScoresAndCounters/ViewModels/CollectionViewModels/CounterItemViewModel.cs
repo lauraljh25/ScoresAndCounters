@@ -5,15 +5,6 @@ namespace ScoresAndCounters.ViewModels.CollectionViewModels
 {
     public class CounterItemViewModel: ObservableObject
     {
-        private int _counterValue;
-        public int CounterValue 
-        {
-            get => _counterValue;
-            set => SetProperty(ref _counterValue, value);
-        }
-        public int CounterIncDec { get; set; }
-        public int CounterCustomIncDec { get; set; }
-
         public Command IncrementCounterItemCommand { get; private set; }
         public Command DecrementCounterItemCommand { get; private set; }
 
@@ -35,5 +26,18 @@ namespace ScoresAndCounters.ViewModels.CollectionViewModels
         {
             CounterValue -= CounterIncDec;
         }
+
+        #region Properties
+        
+        private int _counterValue;
+        public int CounterValue
+        {
+            get => _counterValue;
+            set => SetProperty(ref _counterValue, value);
+        }
+        public int CounterIncDec { get; set; }
+        public int CounterCustomIncDec { get; set; }
+
+        #endregion
     }
 }
