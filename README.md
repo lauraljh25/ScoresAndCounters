@@ -1,8 +1,8 @@
-#Scores And Counters
+Scores And Counters
 
 App for keeping multiple scores/counters created in MAUI.
 
 TO DO
-Add Counter page with collection of counter controls
-Add Counter control
-Add Resource File 
+add settings page 
+add way to load and save counters 
+add colours to each counter
