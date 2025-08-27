@@ -120,11 +120,20 @@
   <data name="Add" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="Continue" xml:space="preserve">
     <value>Continue</value>
   </data>
   <data name="Counters" xml:space="preserve">
     <value>Counters</value>
+  </data>
+  <data name="CustomIncrementValueEntryLabel" xml:space="preserve">
+    <value>Custom Increment Value {0}:</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
   </data>
   <data name="MinusSymbol" xml:space="preserve">
     <value>-</value>
@@ -137,6 +146,9 @@
   </data>
   <data name="PressAddButton" xml:space="preserve">
     <value>Press Add Button</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="ScoresAndCounters" xml:space="preserve">
     <value>Scores And Counters</value>
