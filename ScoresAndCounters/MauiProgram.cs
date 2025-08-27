@@ -34,9 +34,11 @@ namespace ScoresAndCounters
             
             //viewModels
             builder.Services.AddSingleton<SettingsPageViewModel>();
-            
+            builder.Services.AddSingleton<CountersPageViewModel>();
+
             //views
             builder.Services.AddSingleton<SettingsPage>();
+            builder.Services.AddSingleton<CountersPage>();
         }
     }
 }

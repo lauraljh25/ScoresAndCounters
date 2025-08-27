@@ -7,9 +7,6 @@
              x:DataType="viewModels:CountersPageViewModel"
              xmlns:DataViewModels="clr-namespace:ScoresAndCounters.ViewModels.CollectionViewModels"
              xmlns:local="clr-namespace:ScoresAndCounters">
-    <ContentPage.BindingContext>
-        <viewModels:CountersPageViewModel />
-    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{x:Static local:ResourceLibrary.Add}" Command="{Binding AddCounterItemCommand}" />
@@ -31,9 +28,20 @@
                     <StackLayout>
                         <Button Text="{x:Static local:ResourceLibrary.X}" HorizontalOptions="End" VerticalOptions="Start" FontSize="15" TextColor="White" BackgroundColor="DarkRed" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:CountersPageViewModel}}, Path=RemoveCounterItemCommand}" CommandParameter="{Binding .}"></Button>
                         <Label Text="{Binding CounterValue}" FontSize="50" HorizontalOptions="Center"/>
+                        <Grid RowDefinitions="*" ColumnDefinitions="*,*" Margin="10">
+                            <Button Text="{x:Static local:ResourceLibrary.MinusSymbol}" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}" CommandParameter="{Binding CounterIncDec}"></Button>
+                            <Button Text="{x:Static local:ResourceLibrary.PlusSymbol}" Grid.Column="1" HorizontalOptions="Center" FontSize="20" Command="{Binding IncrementCounterItemCommand}" CommandParameter="{Binding CounterIncDec}"></Button>
+                        </Grid>
                         <Grid RowDefinitions="*" ColumnDefinitions="*,*">
-                            <Button Text="{x:Static local:ResourceLibrary.MinusSymbol}" Grid.Column="0" HorizontalOptions="Center" FontSize="20" Command="{Binding DecrementCounterItemCommand}"></Button>
-                            <Button Text="{x:Static local:ResourceLibrary.PlusSymbol}" Grid.Column="1" HorizontalOptions="Center" FontSize="20" Command="{Binding IncrementCounterItemCommand}"></Button>
+                            <HorizontalStackLayout Grid.Column="0" Spacing="10" HorizontalOptions="Center">
+                                <Button Text="{Binding ButtonLabelCustomDec1}" FontSize="15" Command="{Binding DecrementCounterItemCommand}" CommandParameter="{Binding CounterCustomIncDec1}"></Button>
+                                <Button Text="{Binding ButtonLabelCustomDec2}" FontSize="15" Command="{Binding DecrementCounterItemCommand}" CommandParameter="{Binding CounterCustomIncDec2}"></Button>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Grid.Column="1" Spacing="10" HorizontalOptions="Center">
+                                <Button Text="{Binding ButtonLabelCustomInc2}" FontSize="15" Command="{Binding IncrementCounterItemCommand}" CommandParameter="{Binding CounterCustomIncDec2}"></Button>
+                                <Button Text="{Binding ButtonLabelCustomInc1}" FontSize="15" Command="{Binding IncrementCounterItemCommand}" CommandParameter="{Binding CounterCustomIncDec1}"></Button>
+                            </HorizontalStackLayout>
                         </Grid>
                     </StackLayout>
                 </DataTemplate>

@@ -156,6 +156,12 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ValueMinus" xml:space="preserve">
+    <value>{0}-</value>
+  </data>
+  <data name="ValuePlus" xml:space="preserve">
+    <value>{0}+</value>
+  </data>
   <data name="X" xml:space="preserve">
     <value>X</value>
   </data>

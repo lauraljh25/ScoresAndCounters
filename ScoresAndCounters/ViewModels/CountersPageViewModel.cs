@@ -7,23 +7,26 @@ namespace ScoresAndCounters.ViewModels
 {
     public class CountersPageViewModel : ObservableObject
     {
+        private IPreferencesHelper _preferencesHelper;
+
         public ObservableCollection<CounterItemViewModel> CounterItems { get; set; }
         
         public Command AddCounterItemCommand { get; private set; }
         public Command RemoveCounterItemCommand { get; private set; }
 
-        public CountersPageViewModel()
+        public CountersPageViewModel(IPreferencesHelper preferencesHelper)
         {
             CounterItems = new ObservableCollection<CounterItemViewModel>();
             AddCounterItemCommand = new Command(ExecuteAddCounterItemCommand);
             RemoveCounterItemCommand = new Command<CounterItemViewModel>(ExecuteRemoveCounterItemCommand);
+            _preferencesHelper = preferencesHelper;
         }
 
         private void ExecuteAddCounterItemCommand(object obj)
         {
             if (CounterItems.Count < AppConstants.MaxNumberOfCounters)
             {
-                CounterItems.Add(new CounterItemViewModel());
+                CounterItems.Add(new CounterItemViewModel(_preferencesHelper));
                 OnPropertyChanged(nameof(CounterItems));
             }
         }

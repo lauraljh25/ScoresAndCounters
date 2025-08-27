@@ -178,6 +178,24 @@ namespace ScoresAndCounters {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}-.
+        /// </summary>
+        public static string ValueMinus {
+            get {
+                return ResourceManager.GetString("ValueMinus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}+.
+        /// </summary>
+        public static string ValuePlus {
+            get {
+                return ResourceManager.GetString("ValuePlus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to X.
         /// </summary>
         public static string X {
